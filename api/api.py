@@ -1,5 +1,5 @@
 # Import Flask class
-from flask import Flask, jsonify
+from flask import Flask, json, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 # Create Flask object
 app = Flask(__name__)
@@ -8,6 +8,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 # app.config['SECRET_KEY']
 
+# Create db model
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text, nullable=False)
@@ -24,6 +25,17 @@ def serializer(todo):
 def index():
     return jsonify([*map(serializer, Todo.query.all())])
 
+@app.route('/api/create', methods=['POST'])
+def create():
+    request_data = json.loads(request.data)
+    todo = Todo(content=request_data['content'])
+    db.session.add(todo)
+    db.session.commit()
+    return {'201': 'Entry created successfully'}
+
+@app.route('/api/<int:id>')
+def show(id):
+    return jsonify([*map(serializer, Todo.query.filter_by(id=id))])
 
 if __name__ == '__main__':
     app.run(debug=True)
