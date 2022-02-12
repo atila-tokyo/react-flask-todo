@@ -1,7 +1,15 @@
 import React from 'react';
 
-export const Card = () => {
+export const Card = ({ todoList }) => {
     return (
-        <div>TEST</div>
+        <div>
+            {todoList.map(item => {
+                return(
+                <ul key={item.id}>
+                    <li>{item.content}</li>
+                </ul>
+            )
+        })}
+        </div>
     );
 };
