@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 export const Card = ({ todoList }) => {
     return (
@@ -6,7 +7,9 @@ export const Card = ({ todoList }) => {
             {todoList.map(item => {
                 return(
                 <ul key={item.id}>
-                    <li>{item.content}</li>
+                        <li>
+                            <Link to={`${item.id}`}>{item.content}</Link>
+                        </li>
                 </ul>
             )
         })}
