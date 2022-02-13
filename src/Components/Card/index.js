@@ -4,26 +4,28 @@ import {
     StyledContainer,
     StyledUList,
     LinkHome,
-    StyledLabel,
+    StyledCard,
     StyledList
 } from '../Styled-Components';
 export const Card = ({ todoList }) => {
     return (
-        // <StyledContainer>
         <StyledContainer>
             {todoList.map(item => {
                 return (
-                    <StyledUList key={item.id}>
-                        <StyledList>                     
+                    <LinkHome
+                        to={`${item.id}`}
+                        style={{ textDecoration: 'none', color: 'black' }}
+                    >
+                        <StyledCard>
+                            <StyledUList key={item.id}>
+                                <StyledList>                     
     {/* styled-components does not support text-decoration */}
-                                <LinkHome
-                                    to={`${item.id}`}
-                                    style={{ textDecoration: 'none', color: 'black' }}
-                                >
-                                    {item.content}
-                                </LinkHome>                           
-                        </StyledList>
-                    </StyledUList>
+
+                                    {item.content}                          
+                                </StyledList>
+                            </StyledUList>
+                        </StyledCard>
+                    </LinkHome> 
                 )
             })}
         </StyledContainer>
