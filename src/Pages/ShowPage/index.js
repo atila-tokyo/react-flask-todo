@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Delete } from '../../Components/Delete';
 import { useParams } from 'react-router-dom';
+import { StyledBanner, StyledH1, StyledShow } from '../../Components/Styled-Components';
 
 export const Display = () => {
     const { id } = useParams();
@@ -13,9 +14,15 @@ export const Display = () => {
     }, [id])
 
     return (
-        <div>
-            {todo.length > 0 && todo.map(data => <div key={id}>{data.content}</div>)}
+        <StyledShow>
+            <StyledBanner>
+            {todo.length > 0 && todo.map(data =>
+                <div key={id}>
+                    <StyledH1>{data.content}</StyledH1>
+                </div>)}
+            </StyledBanner>
             <Delete id={id} />
-        </div>
+        </StyledShow>
+        
     )
 }

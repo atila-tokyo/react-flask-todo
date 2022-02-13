@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { DeleteButton } from '../Styled-Components'
 export const Delete = ({ id }) => {
 
     const history = useNavigate();
@@ -18,7 +19,7 @@ export const Delete = ({ id }) => {
     }
     return (
         <div>
-            <button onClick={deleteTodo}>Delete</button>
+            <DeleteButton onClick={deleteTodo}>Delete</DeleteButton>
         </div>
     )
 }
