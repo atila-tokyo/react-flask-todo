@@ -1,3 +1,7 @@
+# Start the Flask App to run the Back-End
+
+From the root folder run ```python ./api/api.py```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
