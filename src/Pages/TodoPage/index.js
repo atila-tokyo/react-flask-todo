@@ -33,7 +33,6 @@ export const TodoPage = () => {
             }
         }).then(response => response.json())
             .then(message => {
-                console.log(message);
                 setAddedTodo('');
             })
     };
