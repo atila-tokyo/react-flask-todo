@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledForm, StyledContainer } from '../Styled-Components';
 
 export const Form = ({ userInput, onFormChange, onFormSubmit }) => {
     
@@ -11,11 +12,18 @@ export const Form = ({ userInput, onFormChange, onFormSubmit }) => {
         onFormSubmit();
     }
     return (
-        <div className='container'>
-            <form onSubmit={handleSubmit}>
-                <input type='text' required value={userInput} onChange={handleChange} />
+        <StyledContainer className='container'>
+            <StyledForm onSubmit={handleSubmit}>
+                <input
+                    type='text'
+                    focus='true'
+                    maxlength='80'
+                    placeholder='Please add new task'
+                    required value={userInput}
+                    onChange={handleChange}
+                />
                 <input type='submit' />
-            </form>
-        </div>
+            </StyledForm>
+        </StyledContainer>
     );
 }

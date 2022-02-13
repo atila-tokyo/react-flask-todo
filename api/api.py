@@ -11,7 +11,7 @@ db = SQLAlchemy(app)
 # Create db model
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.Text, nullable=False)
+    content = db.Column(db.String(100), nullable=False)
 
     def __str__(self):
         return f'{self.id} {self.content}'

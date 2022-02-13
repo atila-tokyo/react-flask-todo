@@ -1,11 +1,10 @@
-.App {
-  text-align: center;
+.Root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .Container {
-     height: 90vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
     flex-grow: 1;
+    text-align: center;
 }

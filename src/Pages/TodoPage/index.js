@@ -19,7 +19,6 @@ export const TodoPage = () => {
 
     const handleFormChanges = (inputValue) => {
         setAddedTodo(inputValue)
-        console.log(addedTodo)
     };
 
     const handleFormSubmit = () => {
@@ -34,6 +33,7 @@ export const TodoPage = () => {
         }).then(response => response.json())
             .then(message => {
                 setAddedTodo('');
+                window.location.reload(false);
             })
     };
 

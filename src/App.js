@@ -8,20 +8,20 @@ import Footer from './Components/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="Root">
       <Header className='App-header' />
       <div className='Container'>
-        <Router>
-          <Routes>
-            <Route path='/' element={<TodoPage />} />
-          </Routes>
-          <Routes>
-            <Route exact path='/:id' element={<Display />} />
-          </Routes>
-      </Router>
-      </div>
+          <Router>
+            <Routes>
+              <Route path='/' element={<TodoPage />} />
+            </Routes>
+            <Routes>
+              <Route exact path='/:id' element={<Display />} />
+            </Routes>
+          </Router>
+        </div>
       <Footer />
-    </div>
+      </div>
   );
 }
 
